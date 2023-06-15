@@ -1,0 +1,33 @@
+footer {
+    width: 100%;
+    height: 80px; /* Altura do footer ajustada para exibir o conteúdo */
+    background-color: #01060c;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Montserrat", Arial, sans-serif;
+    overflow: hidden; 
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .footer-content p {
+    margin: 0;
+    font-size: 14px; 
+  }
+  
+  .footer-content span {
+    font-weight: bold;
+  }
+  
+    .footer-content p + p {
+      margin-left: 700px; 
+    }
