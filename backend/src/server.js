@@ -1,5 +1,4 @@
 //IMPORTS
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -7,8 +6,11 @@ const cors = require('cors')
 app.use(cors());
 
 //Import routes
-const route = require('./login_route')
-const routes = require('./register_route')
+const Login_route = require('./login_route')
+const Register_route = require('./register_route')
+const Users_route = require('./users_route')
+
+
 
 //MidleWares para o bodyparser
 // parse application/x-www-form-urlencoded
@@ -20,13 +22,15 @@ app.use(bodyParser.json())
 
 
 //Midleware para as rotas
-app.use(routes)
-app.use('/register', routes)
-app.use('/login', route)
+app.use('/register', Register_route)
+app.use('/login', Login_route)
+app.use('/users', Users_route)
+
+
 
 app.use(express.static('public'))
-
 app.use(express.json());
+
 
 app.listen(3001,() => {
     console.log('Listening on port 3001');

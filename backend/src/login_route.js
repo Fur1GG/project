@@ -57,7 +57,7 @@ async function LoginCheck(User, Password, res){
 
     if (UserInDb == true) {
 
-        let sql = "SELECT email, password, Id, role FROM users WHERE email = '" + User + "'"
+        let sql = "SELECT email, password, Id, role, username FROM users WHERE email = '" + User + "'"
 
         let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sql, (err, result) => {
 
@@ -68,6 +68,7 @@ async function LoginCheck(User, Password, res){
                 GetPassword = result[0].password;
                 UserId = result[0].Id;
                 Role = result[0].role
+                Name = result[0].username
             }
 
         }))
@@ -84,9 +85,10 @@ async function LoginCheck(User, Password, res){
                 let userData = {
                     "email" : User,
                     "Id" : UserId,
-                    "role" : Role
+                    "role" : Role,
+                    "name" : Name
                 }
-                console.log("testar role", userData)
+                console.log("UserData", userData)
                 
                 //TOKENS
                 const accessToken = jwt.sign(userData , process.env.ACCESS_TOKEN_SECRET ,{expiresIn: '1d'});
@@ -107,7 +109,7 @@ async function LoginCheck(User, Password, res){
 
 
                 res.json({
-                    accessToken: accessToken
+                    accessToken: accessToken, Name, Role
                 });
 
             } else {
