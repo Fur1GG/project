@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useContext } from 'react';
+import axios from 'axios';
+import jwt_decode from "jwt-decode";
 import './Sidebar.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
@@ -11,31 +13,47 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { DarkModeContext } from '../Darkmode';
 
 
 
 
 const Sidebar = () => {
-    let role = 'admin';
 
-    //constante para adicionar darkmode
-    const { darkMode } = useContext(DarkModeContext);
+  //adicionar um estado á sidebar para dps verificar se a largur ira diminuir
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const location = useLocation();
 
-    //adicionar um estado á sidebar para dps verificar se a largur ira diminuir
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [role, setRole] = useState('');
+  const [name, setName] = useState('')
 
-    //função que é chamada quando de clica no incon
-    const handleToggleSidebar = () => {
-        setSidebarCollapsed(!sidebarCollapsed);
-    };
+  var isDarkMode = false
+
+  //função que é chamada quando de clica no incon
+  const handleToggleSidebar = () => {
+      setSidebarCollapsed(!sidebarCollapsed);
+      console.log(sidebarCollapsed)
+      localStorage.setItem('sidebarCollapsed', sidebarCollapsed);
+  };
 
 
+  useEffect(() => {
 
+    const accessToken = localStorage.getItem('token');
+    const decoded = jwt_decode(accessToken);
+    console.log(decoded);
+
+    isDarkMode = localStorage.getItem('mode')
+    console.log("darkmode",isDarkMode)
+    setRole(decoded.role)
+    console.log("decoded usernameeeee", decoded.username)
+    setName(decoded.name)
+  }, []);
+
+   
   
   
     return (
-      <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''} ${darkMode ? 'dark-mode' : ''}`}>
+      <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''} `}>
         <div className='menu_bars'>
           <FontAwesomeIcon icon={faBars} onClick={handleToggleSidebar} />
         </div>
@@ -43,13 +61,13 @@ const Sidebar = () => {
           <div className="profile_image">
             <FontAwesomeIcon icon={faUser} />
           </div>
-          <div className="profile_name">Diogo Silva</div>
+          <div className="profile_name">{name}</div>
         </div>
         <ul className="side_bar_menu">
           {role === 'admin' ? (
 
             <>
-              <li className='side_bar_item'>
+              <li className={`side_bar_item ${location.pathname === '/users' ? 'active' : ''}`}>
                 <Link to="/users" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faUsers} /> <h3>Utilizadores</h3></div></Link>
               </li>
 

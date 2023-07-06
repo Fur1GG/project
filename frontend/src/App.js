@@ -6,7 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import LandingPage from './components/landing_page/LandingPage';
 import Home from './components/pages/Home';
-import DarkModeProvider from './components/Darkmode';
+import UserList from './components/pages/Users';
+
 
 
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/users" element={<UserList />} />
         </Routes>
       </Router>  
       </header>

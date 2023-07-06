@@ -5,6 +5,7 @@
     color: #fff;
     height: 100%;
     padding: 20px;
+    position: fixed;
   }
   
   
@@ -53,12 +54,15 @@
     font-size: 20px;
   }
   
-  .side_bar_links,
+  .side_bar_links h3:hover,
+  .side_bar_links:hover,
   .menu_bars:hover{
-    color: rgb(14, 70, 255);
+    color: #329dd5;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
+  
+
 
   
   
@@ -138,12 +142,12 @@
     width: auto;
     border-bottom: none;
   }
+
   
 
-
-/*Darkmode*/
-
-.sidebar.dark-mode {
-    background-color: #2c405a;
-
-}
+  /*Quando se está na pagina, o respetivo link fica a azul*/
+  .side_bar_item.active .side_bar_links {
+    color: #329dd5;
+    /* Add any other styles you want for the active link */
+  }
+  

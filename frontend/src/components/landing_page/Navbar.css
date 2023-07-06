@@ -161,17 +161,7 @@ a:active {
   transition: all 0.2s ease;
 }
 
-a:focus, a:hover,
-a:link:focus,
-a:link:hover,
-a:visited:focus,
-a:visited:hover,
-a:active:focus,
-a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
+
 
 .container {
   display: flex;

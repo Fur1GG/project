@@ -6,7 +6,7 @@ const routes = express.Router();
 routes.get("/", async (req,res) => {
 
     //buscar users á base de dados
-    let sql = "SELECT username, email, role FROM users"
+    let sql = "SELECT id, username, email, role FROM users"
 
     let results = await new Promise((resolve, reject) =>{
         dbase.query(sql, (err, result) => {
@@ -22,3 +22,5 @@ routes.get("/", async (req,res) => {
 
     
 })
+
+module.exports = routes

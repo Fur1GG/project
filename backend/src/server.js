@@ -9,6 +9,8 @@ app.use(cors());
 const Login_route = require('./login_route')
 const Register_route = require('./register_route')
 const Users_route = require('./users_route')
+const Remove_user = require('./remove_user')
+const Update_user = require('./update_user')
 
 
 
@@ -25,6 +27,8 @@ app.use(bodyParser.json())
 app.use('/register', Register_route)
 app.use('/login', Login_route)
 app.use('/users', Users_route)
+app.use('/removeUser', Remove_user)
+app.use('/updateUser', Update_user)
 
 
 
