@@ -1,0 +1,64 @@
+.inventory {
+    padding: 50px;
+    background-color: rgb(240,255,255);
+    height: 100vh;
+}
+
+.inv_container {
+    display: flex;
+}
+  
+.inv_content {
+    flex-grow: 1;
+}
+  
+.room_buttons button{
+    margin-bottom: 10px;
+    color: rgb(14, 70, 255, 70%);
+    background-color: #c8e7fa;
+}
+
+.room_buttons :hover{
+    color: white;
+    background-color: rgb(14, 70, 255);
+    opacity: 100%;
+}
+  
+  .room_buttons button {
+    margin-right: 10px;
+  }
+  
+  .item-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .item-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .item-list li span {
+    margin-right: 10px;
+  }
+  
+  .item-list li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+  }
+  
+  .item-list li button:hover {
+    color: darkred;
+  }
+  
+.room_buttons button.active {
+    background-color: rgb(14, 70, 255);
+    color: white;
+    opacity: 100%;
+}

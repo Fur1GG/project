@@ -11,6 +11,12 @@ const Register_route = require('./register_route')
 const Users_route = require('./users_route')
 const Remove_user = require('./remove_user')
 const Update_user = require('./update_user')
+const Authotization = require('./auth_route')
+const Requests = require("./requests_route")
+const Update_advisor = require("./update_advisor")
+const Students_route = require("./students_route")
+const GetInventory_route = require("./get_inventory")
+const SetInventory_route = require("./set_inventory")
 
 
 
@@ -29,6 +35,12 @@ app.use('/login', Login_route)
 app.use('/users', Users_route)
 app.use('/removeUser', Remove_user)
 app.use('/updateUser', Update_user)
+app.use('/auth', Authotization)
+app.use('/requests', Requests)
+app.use('/updateAdvisor', Update_advisor)
+app.use('/students', Students_route)
+app.use('/getinventory', GetInventory_route)
+app.use('/setinventory', SetInventory_route)
 
 
 

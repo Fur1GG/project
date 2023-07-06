@@ -1,9 +1,9 @@
-form {
+.register_form form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
+
 
 .register_form label {
   margin: 10px;
@@ -11,7 +11,7 @@ form {
   text-align: left;
 }
 
-.register_form input {
+.register_form input, .register_form select {
   border-radius: 5px;
   margin-bottom: 20px;
   max-width: 400px;
@@ -37,6 +37,7 @@ form {
 
 .register_form h1 {
   font-size: 40px;
+  color: #0077FF;
 }
 
 button {
@@ -55,6 +56,7 @@ button {
 button:hover {
   background-color: #0066CC;
 }
+
 
 .btn_register_home{
   border: none;
@@ -80,7 +82,6 @@ button:hover {
 
 .register_form {
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 10px;
   height: 70vh;
   width: 50%;
   border-radius: 20px;
@@ -89,18 +90,15 @@ button:hover {
 }
 
 
-.back_res{
-  padding: 150px   ;
-  justify-content: center ;
-  display: flex;
-}
-
 .register_form h1 {
   text-align: center;
 }
 
 
 .back_res {
+  padding: 150px   ;
+  justify-content: center ;
+  display: flex;
   background-image: url('../../../public/images/img7.jpg');
   background-size: 100%;
   background-repeat: no-repeat;

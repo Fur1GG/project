@@ -57,7 +57,7 @@ async function LoginCheck(User, Password, res){
 
     if (UserInDb == true) {
 
-        let sql = "SELECT email, password, Id, role, username FROM users WHERE email = '" + User + "'"
+        let sql = "SELECT email, password, Id, role, username, number FROM users WHERE email = '" + User + "'"
 
         let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sql, (err, result) => {
 
@@ -69,6 +69,7 @@ async function LoginCheck(User, Password, res){
                 UserId = result[0].Id;
                 Role = result[0].role
                 Name = result[0].username
+                NumberId = result[0].number
             }
 
         }))
@@ -86,7 +87,8 @@ async function LoginCheck(User, Password, res){
                     "email" : User,
                     "Id" : UserId,
                     "role" : Role,
-                    "name" : Name
+                    "name" : Name,
+                    "number" : NumberId
                 }
                 console.log("UserData", userData)
                 

@@ -10,6 +10,8 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [numberId, setNumber] = useState('')
+  const [course, setCourse] = useState('')
 
   const navigate = useNavigate();
 
@@ -22,13 +24,15 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     //requisição para o backend para registrar o utilizador
-    axios.post('http://localhost:3001/register', { name, email, password } , {headers:{
+    axios.post('http://localhost:3001/register', { name, email, password, numberId, course } , {headers:{
         'Content-Type': 'application/json'
     }
     })
 
     .then((response) => {
       if (response.data == "Já existe um utilizador com esse Email") {
+        alert(response.data)
+      } else if (response.data == "Já existe um utilizador com esse numero") {
         alert(response.data)
       } else {
         handleLoginClick(); // redireciona o utilizador para a página de login após o registo
@@ -48,17 +52,34 @@ const Register = () => {
     <div className='register_form'>
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} />
+        <input type="text" id="name" name="name" placeholder='Nome' value={name} onChange={(event) => setName(event.target.value)} />
+
         <br />
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+
+        <input type='id' id="number" name="number" placeholder='Número' value={numberId} onChange={(event) => setNumber(event.target.value)} />
+
         <br />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+
+        <select name="course" id="course" value={course} onChange={(event) => setCourse(event.target.value)}>
+          <option value="" selected disabled hidden>Selecionar Curso</option>
+          <option value='Informática Web'>Informática Web</option>
+          <option value='Engenharia Informática'>Engenharia Informática</option>
+        </select>
+ 
+        <br/>
+
+        <input type="email" id="email" name="email" placeholder='Email' value={email} onChange={(event) => setEmail(event.target.value)} />
+
         <br />
+
+        <input type="password" id="password" name="password" placeholder='Password' value={password} onChange={(event) => setPassword(event.target.value)} />
+
+        <br />
+        
         <button className='submit_register' type="submit">Register</button>
       </form>
+      
+      
     </div>
     </div>
     </>

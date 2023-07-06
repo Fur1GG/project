@@ -2,17 +2,18 @@
     display: flex;
     height: 100vh;
     margin-top: 0%;
+    
 
   }
      
 .home_content {
-  flex: 1;
+  
   background-color: rgb(240,255,255);
+  flex-grow: 1;
 }
   
 .home_body{
-  padding: 40px;
-  margin-left: 250px;
+  padding: 50px;
 }
 
 

@@ -7,6 +7,12 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import LandingPage from './components/landing_page/LandingPage';
 import Home from './components/pages/Home';
 import UserList from './components/pages/Users';
+import RequestsList from './components/pages/Requests';
+import { PrivateRoutes } from './AuthService';
+import { useState } from 'react';
+import StudentsList from './components/pages/Students'
+import Inventory from './components/pages/Inventory';
+
 
 
 
@@ -17,6 +23,9 @@ import UserList from './components/pages/Users';
 //import {Routes, Routes} from "./react-router-dom"
 
 function App() {
+
+  const[auth, setAuth] = useState(null);
+
   return (
     <div className="App">
 
@@ -25,11 +34,17 @@ function App() {
       <header className="App-header">
       <Router>
         <Routes>
-            <Route path="/home" element={<Home />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/users" element={<UserList />} />
+
+            <Route elemnt={<PrivateRoutes auth={auth} setAuth={setAuth} />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/users" element={<UserList />} />
+              <Route path="/requests" element={<RequestsList />} />
+              <Route path='/students' element={<StudentsList/>} />
+              <Route path='/inventory' element={<Inventory/>} />                            
+            </Route>
         </Routes>
       </Router>  
       </header>

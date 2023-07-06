@@ -6,7 +6,6 @@ const routes = express.Router();
 routes.put('/', (req, res) => {
     let Role = req.body.role
     let UserId = req.body.userid
-    console.log("oleeeee", Role, UserId)
 
     updateusers(Role, UserId, res)
 });

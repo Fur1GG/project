@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css'; 
 import Sidebar from './Sidebar';
-import NavbarHome from './NavbarHome';
+import NavbarHome from './TopbarHome';
   
 
 const HomePage = () => {

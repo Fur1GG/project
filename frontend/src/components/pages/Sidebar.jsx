@@ -17,6 +17,7 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
 
 
+
 const Sidebar = () => {
 
   //adicionar um estado á sidebar para dps verificar se a largur ira diminuir
@@ -54,8 +55,9 @@ const Sidebar = () => {
   
     return (
       <div className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''} `}>
+        <div className='sidebar-inner'>
         <div className='menu_bars'>
-          <FontAwesomeIcon icon={faBars} onClick={handleToggleSidebar} />
+        <FontAwesomeIcon icon={faBars} onClick={() => { handleToggleSidebar();}} />
         </div>
         <div className="profile">
           <div className="profile_image">
@@ -71,16 +73,16 @@ const Sidebar = () => {
                 <Link to="/users" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faUsers} /> <h3>Utilizadores</h3></div></Link>
               </li>
 
-              <li className='side_bar_item'>
+              <li className={`side_bar_item ${location.pathname === '/requests' ? 'active' : ''}`}>
                 <Link to="/requests" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faBell} /> <h3>Pedidos</h3></div></Link>
               </li>
 
-              <li className='side_bar_item'>
-                <Link to="/alunos" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
+              <li className={`side_bar_item ${location.pathname === '/students' ? 'active' : ''}`}>
+                <Link to="/students" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
               </li>
 
               <li className='side_bar_item'>
-                <Link to="/inventario" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
+                <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
               </li>
 
               <li className='side_bar_item'>
@@ -94,12 +96,12 @@ const Sidebar = () => {
 
           ) : role === 'professor' ? (
               <>
-                <li className='side_bar_item'>
-                    <Link to="/alunos" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
+                <li className={`side_bar_item ${location.pathname === '/students' ? 'active' : ''}`}>
+                    <Link to="/students" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
                 </li>
 
                 <li className='side_bar_item'>
-                    <Link to="/inventario" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
+                    <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
                 </li>
 
                 <li className='side_bar_item'>
@@ -113,7 +115,7 @@ const Sidebar = () => {
           ):(
               <>
                 <li className='side_bar_item'>
-                    <Link to="/inventario" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
+                    <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
                 </li>
 
                 <li className='side_bar_item'>
@@ -127,6 +129,7 @@ const Sidebar = () => {
 
           )}
         </ul>
+        </div>
       </div>
     );
 };
