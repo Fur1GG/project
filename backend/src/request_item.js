@@ -9,7 +9,7 @@ const routes = express.Router();
 routes.put('/', (req, res) => {
     let ItemId = req.body.itemid
     let UserIdItem = req.body.useriditem
-    let State = req.body.state
+    let State = false
     console.log("oluuu")
 
 

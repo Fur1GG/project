@@ -123,6 +123,7 @@ function Inventory() {
 
 
     const requestItem = async (itemId) => {
+      //falta enviar o userid que esta no token, 
       const confirmRequest = window.confirm('Are you sure you want to request this item?');
       if (confirmRequest) {
         try {
@@ -194,7 +195,7 @@ function Inventory() {
                           <tr key={item.id}>
                               <td>{item.objectname}</td>
                               <td>
-                                {item.state ? (
+                                {item.state === 'true' ?(
                                   <>
                                     Disponivel
                                   </>
