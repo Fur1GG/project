@@ -1,50 +1,48 @@
 .requests {
     padding: 50px;
     background-color: rgb(240,255,255);
-    height: 100vh;
+    margin-top: 5%;
 }
 
 .requests h1 {
   text-align: center;
+  padding: 50px;
 }
 
-.table-container {
-  margin-top: 20px;
-}
 
-table {
+.reqtable {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
 }
 
-thead {
+.reqtable thead {
   background-color: #fff;
   color: #3ca9e2;
   font-size: x-large;
 }
 
 
-th,
-td {
+.reqtable th,
+.reqtable td {
   padding: 10px;
   text-align: left;
   border: 1px solid #3ca9e2;
 }
 
-th {
+.reqtable th {
   font-weight: bold;
 }
 
-tbody {
+.reqtable tbody {
     font-size: medium;
 }
 
-tbody tr:nth-child(even) {
+.reqtable tbody tr:nth-child(even) {
   background-color: #fff;
 }
 
-tbody tr:hover {
+.reqtable tbody tr:hover {
   background-color: #c8e7fa;
 }
 
@@ -74,7 +72,11 @@ tbody tr:hover {
 .add_role {
     align-items: center;
     text-align: center;
-    color: blue;
+}
+
+.add_role h3{
+  color:  gray;
+  opacity: 0.5;
 }
 
 .no_requests {
@@ -83,7 +85,34 @@ tbody tr:hover {
     background-color: #c8e7fa;
 }
 
+.actions_accept {
+  display: inline-flex;
+  margin-left: 20px;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: green;
+}
 
+.actions_decline {
+  display: inline-flex;
+  margin-left: 20px;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
 
+.actions_decline :hover {
+  color: rgb(77, 5, 5);
+}
+
+.actions_accept:hover {
+  color: rgb(3, 56, 3);
+}
 
 

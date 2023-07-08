@@ -48,7 +48,7 @@ const StudentsList = () => {
                             <p>De momento ainda não tem alunos a orientar</p>
                         </div>
                     ):(
-                        <table>
+                        <table className='studentstable'>
                             <tbody>
                                 {students.map(student => (
                                     <tr key={student.id}>

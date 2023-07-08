@@ -17,6 +17,8 @@ const Update_advisor = require("./update_advisor")
 const Students_route = require("./students_route")
 const GetInventory_route = require("./get_inventory")
 const SetInventory_route = require("./set_inventory")
+const Remove_item = require("./remove_item")
+const Request_item = require("./request_item")
 
 
 
@@ -41,6 +43,9 @@ app.use('/updateAdvisor', Update_advisor)
 app.use('/students', Students_route)
 app.use('/getinventory', GetInventory_route)
 app.use('/setinventory', SetInventory_route)
+app.use('/removeItem', Remove_item)
+app.use('/requestItem', Request_item)
+
 
 
 

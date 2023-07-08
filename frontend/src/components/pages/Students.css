@@ -9,7 +9,11 @@
 .students {
     padding: 50px;
     background-color: rgb(240,255,255);
-    height: 100vh;
+    margin-top: 5%;
+}
+.students h1 {
+  text-align: center;
+  padding: 50px;
 }
 
 .no_students {
@@ -17,3 +21,40 @@
     padding: 15%;
     background-color: #c8e7fa;
 }
+
+.studentstable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  .studentstable thead {
+    background-color: #fff;
+    color: #3ca9e2;
+    font-size: x-large;
+  }
+  
+  
+  .studentstable th,
+  .studentstable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #3ca9e2;
+  }
+  
+  .studentstable th {
+    font-weight: bold;
+  }
+  
+  .studentstable tbody {
+      font-size: medium;
+  }
+  
+  .studentstable tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  .studentstable tbody tr:hover {
+    background-color: #c8e7fa;
+  }
+  

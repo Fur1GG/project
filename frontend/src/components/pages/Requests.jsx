@@ -198,8 +198,8 @@ const RequestsList = () => {
                         <FontAwesomeIcon icon={faCode} />
                     </div>
                 ):(
-                    <table>
-
+                    <table className='reqtable'>
+                        
                         <tbody>
                             {users.map(user => (
                                 <tr key={user.id}>
@@ -209,7 +209,7 @@ const RequestsList = () => {
                                     {acceptedUser === user.id ? (
                                         <td>
                                             <div className='add_role'>
-                                                <h3>Adicionar Role</h3>
+                                                <h3>Escolha opção</h3>
 
                                                 <select 
                                                     value={editedRole}
@@ -263,14 +263,14 @@ const RequestsList = () => {
                                             </div>
                                         ) : (
                                             <div>
-                                                <div className='actions'>
+                                                <div className='actions_accept'>
                                                     <FontAwesomeIcon 
                                                     icon={faCircleCheck}
                                                     onClick={() => handleEditUser(user.id, { role: user.role })}
                                                     title='Accept' />
                                                 </div>
 
-                                                <div className='actions'>
+                                                <div className='actions_decline'>
                                                     <FontAwesomeIcon 
                                                     icon={faTimesCircle}
                                                     onClick={() => handleRemoveUser(user.id)} />

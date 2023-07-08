@@ -1,51 +1,50 @@
 .users {
     padding: 50px;
     background-color: rgb(240,255,255);
-    height: 100vh;
+    margin-top: 5%;
 }
 
 .users h1 {
   text-align: center;
+  padding: 20px;
 }
 
-.table-container {
-  margin-top: 20px;
-}
 
-table {
+
+.userstable {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   padding: 50px;
 }
 
-thead {
+.userstable thead {
   background-color: #fff;
   color: #3ca9e2;
   font-size: x-large;
 }
 
 
-th,
-td {
+.userstable th,
+.userstable td {
   padding: 10px;
   text-align: left;
   border: 1px solid #3ca9e2;
 }
 
-th {
+.userstable th {
   font-weight: bold;
 }
 
-tbody {
+.userstable tbody {
     font-size: medium;
 }
 
-tbody tr:nth-child(even) {
+.userstable tbody tr:nth-child(even) {
   background-color: #fff;
 }
 
-tbody tr:hover {
+.userstable tbody tr:hover {
   background-color: #fff;
 }
 
@@ -63,16 +62,29 @@ tbody tr:hover {
   margin-left: 20px;
   justify-content: flex-end;
   gap: 10px;
-}
-
-.actions {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: blue;
+}
+
+.actions-trash {
+  display: inline-flex;
+  margin-left: 20px;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+.actions-trash :hover {
+  color: rgb(77, 5, 5);
 }
 
 .actions:hover {
-  color: blue;
+  color: rgb(6, 6, 92);
 }
 
 .search_bar input {

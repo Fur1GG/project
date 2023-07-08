@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TopbarHome.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun  } from '@fortawesome/free-solid-svg-icons';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +11,22 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
+
 const NavbarHome = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const locationNames = {
+      '/users': 'Utilizadores',
+      '/requests': 'Pedidos',
+      '/students': 'Alunos',
+      '/inventory': 'Inventário',
+      '/horarios': 'Horários',
+      '/lotacao': 'Lotação',
+      '/home': 'SINS-LAB',
+    };
+  
 
     //adicionar um estado para dps verificar quando fica ou nao em darkmode
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,7 +45,7 @@ const NavbarHome = () => {
     }
 
     return (
-      <nav className={`navbar_home ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <nav className='navbar_home'>
         <div className='topbar-inner'>
         <div className='navbar_home_logo'>
             <Link to="/home" className='navbar-logo'>
@@ -40,7 +54,7 @@ const NavbarHome = () => {
         </div>
 
         <div className='navbar_home_title'>
-            <h1>SINS-LAB</h1>
+          <h1>{locationNames[location.pathname]}</h1>
         </div>
 
         <ul className="navbar_menu1"> 

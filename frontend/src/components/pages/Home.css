@@ -1,6 +1,5 @@
 .home_container {
     display: flex;
-    height: 100vh;
     margin-top: 0%;
     
 
@@ -15,5 +14,16 @@
 .home_body{
   padding: 50px;
 }
+
+.home_body h1 {
+  font-size: 48px;
+  font-family: 'Arial', sans-serif;
+  color: #3ca9e2;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+
 
 

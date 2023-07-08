@@ -144,7 +144,7 @@ const UserList = () => {
               onChange={handleSearchChange}
             />
           </div>
-          <table>
+          <table className='userstable'>
             <thead>
               <tr>
                 <th>Username</th>
@@ -207,7 +207,7 @@ const UserList = () => {
                           />
                         </div>
                       
-                        <div className='actions'>
+                        <div className='actions-trash'>
                           <FontAwesomeIcon
                             icon={faTrash}
                             onClick={() => handleRemoveUser(user.id)}

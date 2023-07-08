@@ -1,7 +1,7 @@
 .inventory {
     padding: 50px;
     background-color: rgb(240,255,255);
-    height: 100vh;
+    margin-top: 5%;
 }
 
 .inv_container {
@@ -16,6 +16,7 @@
     margin-bottom: 10px;
     color: rgb(14, 70, 255, 70%);
     background-color: #c8e7fa;
+    
 }
 
 .room_buttons :hover{
@@ -24,14 +25,24 @@
     opacity: 100%;
 }
   
-  .room_buttons button {
-    margin-right: 10px;
-  }
+.room_buttons {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.room_buttons button.active {
+    background-color: rgb(14, 70, 255);
+    color: white;
+    opacity: 100%;
+}
   
-  .item-list {
+
+.item-list {
     list-style: none;
-    padding: 0;
-  }
+    padding: 50px;
+    margin-top: 30px;
+}
   
   .item-list li {
     display: flex;
@@ -46,19 +57,138 @@
     margin-right: 10px;
   }
   
-  .item-list li button {
+  .item-list .icon{
     background: none;
     border: none;
     cursor: pointer;
     color: red;
   }
   
-  .item-list li button:hover {
-    color: darkred;
+  .item-list .icon :hover{
+    color: rgb(77, 5, 5);
+  }
+
+  .item-list h1{
+    text-align: center;
+    margin-bottom: 50px;
+    color: blue;
+    font-size: xx-large;
+  }
+
+  .h1inv {
+    text-align: center;
+    padding: 50px;
+  }
+
+  .add_item_button button{
+    background-color: transparent;
+    border: 1px solid #3ca9e2;
+    color: #3ca9e2;
+  }
+
+  .add_item_button button:hover{
+    background-color: #3ca9e2;
+    border: 1px solid white;
+    color: white;
+  }
+
+  .requisitar_btn button{
+    background-color: #c8e7fa;
+    border: 1px solid green;
+    color: green;
+  }
+
+/*DIALOG*/
+
+
+  .dialog-container {
+    position: fixed;
+    top: 0;
+   left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-.room_buttons button.active {
-    background-color: rgb(14, 70, 255);
-    color: white;
-    opacity: 100%;
+  .dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .dialog h2 {
+    margin-bottom: 10px;
+  }
+  
+  .dialog label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .dialog input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+  
+  .dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .dialog-buttons button {
+    margin-left: 10px;
+  }
+
+
+
+
+
+
+
+/*TABLE*/
+
+.invtable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
 }
+
+.invtable thead {
+  background-color: #fff;
+  color: #3ca9e2;
+  font-size: x-large;
+}
+
+
+.invtable th,
+.invtable td {
+  padding: 10px;
+  text-align: left;
+}
+
+.invtable th {
+  font-weight: bold;
+}
+
+.invtable tbody {
+    font-size: medium;
+}
+
+.invtable tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.invtable tbody tr:hover {
+  background-color: #c8e7fa;
+}
+
+
+

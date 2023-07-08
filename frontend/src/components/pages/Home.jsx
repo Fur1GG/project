@@ -13,10 +13,6 @@ const HomePage = () => {
 
       <div className='home_body'>
         <h1>Bem-vindo à Página Inicial do SINS LAB</h1>
-        <p>
-          jgkndfkçakdglsdfkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjgçsdklfnbvlkndflçbnkdlkfbnlºdnfb
-          dfçjbkdjfbndlºkfbndlºkfnblºadnflbknadlºkbn
-        </p>
       </div>
 
       </div>
