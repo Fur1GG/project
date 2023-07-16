@@ -1,18 +1,20 @@
 .home_container {
     display: flex;
-    margin-top: 0%;
-    
-
-  }
+    background-color: #c8e7fa;
+    min-height: 100vh;
+}
      
 .home_content {
-  
   background-color: rgb(240,255,255);
   flex-grow: 1;
+  margin-right: 20px;
+  margin-bottom: 20px; 
 }
   
 .home_body{
   padding: 50px;
+     
+  
 }
 
 .home_body h1 {

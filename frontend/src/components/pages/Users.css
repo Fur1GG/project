@@ -1,7 +1,9 @@
 .users {
     padding: 50px;
     background-color: rgb(240,255,255);
-    margin-top: 5%;
+    min-height: 77vh;
+    margin-bottom: 20px;    
+
 }
 
 .users h1 {
@@ -50,10 +52,12 @@
 
 .users_container {
   display: flex;
+  background-color: #c8e7fa;
 }
 
 .users_content {
   flex-grow: 1;
+  margin-right: 20px;
 }
 
 

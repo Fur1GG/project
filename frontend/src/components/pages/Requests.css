@@ -1,7 +1,8 @@
 .requests {
     padding: 50px;
     background-color: rgb(240,255,255);
-    margin-top: 5%;
+    margin-bottom: 20px;    
+    min-height: 77vh;
 }
 
 .requests h1 {
@@ -48,10 +49,12 @@
 
 .requests_container {
   display: flex;
+  background-color: #c8e7fa;
 }
 
 .requests_content {
   flex-grow: 1;
+  margin-right: 20px;
 }
 
 

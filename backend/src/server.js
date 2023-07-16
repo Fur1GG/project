@@ -19,6 +19,8 @@ const GetInventory_route = require("./get_inventory")
 const SetInventory_route = require("./set_inventory")
 const Remove_item = require("./remove_item")
 const Request_item = require("./request_item")
+const Return_item = require("./return_item")
+const GetRequestedItems = require("./get_item_requested")
 
 
 
@@ -45,6 +47,9 @@ app.use('/getinventory', GetInventory_route)
 app.use('/setinventory', SetInventory_route)
 app.use('/removeItem', Remove_item)
 app.use('/requestItem', Request_item)
+app.use('/returnItem', Return_item)
+app.use('/getrequestedItems', GetRequestedItems)
+
 
 
 

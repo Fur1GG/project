@@ -81,7 +81,7 @@ const Sidebar = () => {
                 <Link to="/students" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
               </li>
 
-              <li className='side_bar_item'>
+              <li className={`side_bar_item ${location.pathname === '/inventory' ? 'active' : ''}`}>
                 <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
               </li>
 

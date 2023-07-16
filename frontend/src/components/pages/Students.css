@@ -1,15 +1,18 @@
 .students_container {
     display: flex;
+    background-color: #c8e7fa;
 }
   
 .students_content {
     flex-grow: 1;
+    margin-right: 20px;
 }
 
 .students {
     padding: 50px;
     background-color: rgb(240,255,255);
-    margin-top: 5%;
+    margin-bottom: 20px;    
+    min-height: 77vh;
 }
 .students h1 {
   text-align: center;
