@@ -8,7 +8,7 @@ routes.post("/", async (req,res) => {
     let ID = req.body.id
     console.log("printa Id", ID)
     let value = ''
-    //buscar users á base de dados
+    //buscar users a base de dados
     let sql = "SELECT id, username, number, course, advisor, email, role FROM users WHERE role != '"+ value +"' AND id != '"+ ID +"'"
 
     let results = await new Promise((resolve, reject) =>{
