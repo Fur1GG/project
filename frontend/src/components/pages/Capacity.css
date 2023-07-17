@@ -1,0 +1,38 @@
+.capacity {
+    padding: 50px;
+    background-color: rgb(240,255,255);
+    margin-bottom: 20px;    
+    min-height: 77vh;
+    display: flex;
+}
+
+.capacity_container {
+    display: flex;
+    background-color: #c8e7fa;
+
+    
+}
+  
+.capacity_content {
+    flex-grow: 1;
+    margin-right: 20px;
+    
+}
+
+.capacity h1{
+    text-align: center;
+    color: blue;
+    padding: 20px;
+}
+
+
+.capacity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajuste a altura conforme necessário */
+  
+}
+
+  

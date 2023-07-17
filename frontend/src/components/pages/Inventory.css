@@ -17,6 +17,14 @@
     margin-right: 20px;
     
 }
+
+.search_bar input{
+  border: 1px solid #c8e7fa;
+}
+
+.invtable {
+  border: 1px solid #c8e7fa;
+}
   
 .room_buttons button{
     margin-bottom: 10px;

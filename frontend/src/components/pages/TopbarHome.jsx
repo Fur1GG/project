@@ -25,6 +25,7 @@ const NavbarHome = () => {
       '/horarios': 'Horários',
       '/lotacao': 'Lotação',
       '/home': 'SINS-LAB',
+      '/schedules': 'Horários',
     };
   
 

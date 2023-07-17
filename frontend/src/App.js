@@ -12,6 +12,8 @@ import { PrivateRoutes } from './AuthService';
 import { useState } from 'react';
 import StudentsList from './components/pages/Students'
 import Inventory from './components/pages/Inventory';
+import HorarioForm from './components/pages/Schedules';
+import Capacity from './components/pages/Capacity';
 
 
 
@@ -43,7 +45,9 @@ function App() {
               <Route path="/users" element={<UserList />} />
               <Route path="/requests" element={<RequestsList />} />
               <Route path='/students' element={<StudentsList/>} />
-              <Route path='/inventory' element={<Inventory/>} />                            
+              <Route path='/inventory' element={<Inventory/>} />
+              <Route path='/schedules' element={<HorarioForm/>} />  
+              <Route path='/capacity' element={<Capacity/>} />                              
             </Route>
         </Routes>
       </Router>  

@@ -34,19 +34,23 @@ function Login(){
                         headers:{'Content-Type': 'application/json'}
                     }
                 ).then(function(response) {
+                    if (response.data == "A sua conta ainda se encontra em verificação"){
+                        alert(response.data)
+                    } else {
 
-                    //Caso o response for pass errada ou o utilizador nao existe, manda um alert
-                    if(response.data == "Pass errada" || response.data == "Utilizador nao existe!"){
-                        alert("Email ou password inválidos")
-                    }else {
-                        //caso a resposta por parte do servidor nao sejam as definidas em cima, entao o login é aceite
-                        localStorage.setItem('token', response.data.accessToken);
-                        //ir para a pagina home
-                        navigate('/home')
-                        console.log('token',token)
-                        
-
+                        //Caso o response for pass errada ou o utilizador nao existe, manda um alert
+                        if(response.data == "Pass errada" || response.data == "Utilizador nao existe!"){
+                            alert("Email ou password inválidos")
+                        }else {
+                            //caso a resposta por parte do servidor nao sejam as definidas em cima, entao o login é aceite
+                            localStorage.setItem('token', response.data.accessToken);
+                            //ir para a pagina home
+                            navigate('/home')
+                            console.log('token',token)
+                            
+                        }
                     }
+                   
                 })
                 
                 console.log(response.data);
@@ -70,21 +74,6 @@ function Login(){
 
     
     };
-
-    
-    const handleNavigate = () => {
-        const decoded = jwt_decode(token);
-       
-        setRole(decoded.role)
-        console.log(role)
-        
-        if (role == 'admin') {
-            navigate('/home')
-        }else {
-            alert("A sua conta ainda se encontra em processo de verificação")
-        }
-
-    }
 
 
     return (

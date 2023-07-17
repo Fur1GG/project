@@ -12,7 +12,7 @@ function Inventory() {
     const [items1, setItems1] = useState([]);
     const [items2, setItems2] = useState([]);
     const [requestedItems, setRequestedItems] = useState([]);
-    const [selectedRoom, setSelectedRoom] = useState('');
+    const [selectedRoom, setSelectedRoom] = useState('1');
     const [searchQuery, setSearchQuery] = useState('');
 
     const [showDialog, setShowDialog] = useState(false);

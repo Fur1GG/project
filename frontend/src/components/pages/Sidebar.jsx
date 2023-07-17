@@ -85,12 +85,12 @@ const Sidebar = () => {
                 <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
               </li>
 
-              <li className='side_bar_item'>
-                <Link to="/horarios" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
+              <li className={`side_bar_item ${location.pathname === '/schedules' ? 'active' : ''}`}>
+                <Link to="/schedules" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
               </li>
 
-              <li className='side_bar_item'>
-                <Link to="/lotacao" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
+              <li className={`side_bar_item ${location.pathname === '/capacity' ? 'active' : ''}`}>
+                <Link to="/capacity" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
               </li>
             </>
 
@@ -100,30 +100,30 @@ const Sidebar = () => {
                     <Link to="/students" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faGraduationCap} /> <h3>Alunos</h3> </div></Link>
                 </li>
 
-                <li className='side_bar_item'>
-                    <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/inventory' ? 'active' : ''}`}>
+                  <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
                 </li>
 
-                <li className='side_bar_item'>
-                    <Link to="/horarios" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/schedules' ? 'active' : ''}`}>
+                  <Link to="/schedules" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
                 </li>
 
-                <li className='side_bar_item'>
-                    <Link to="/lotacao" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/capacity' ? 'active' : ''}`}>
+                  <Link to="/capacity" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
                 </li>
               </>
           ):(
               <>
-                <li className='side_bar_item'>
-                    <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/inventory' ? 'active' : ''}`}>
+                  <Link to="/inventory" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faClipboardList} /> <h3>Inventário</h3></div></Link>
                 </li>
 
-                <li className='side_bar_item'>
-                    <Link to="/horarios" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/schedules' ? 'active' : ''}`}>
+                  <Link to="/schedules" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faCalendar} /> <h3>Horários</h3></div></Link>
                 </li>
 
-                <li className='side_bar_item'>
-                    <Link to="/lotacao" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
+                <li className={`side_bar_item ${location.pathname === '/capacity' ? 'active' : ''}`}>
+                  <Link to="/capacity" className='side_bar_links'><div className='side_bar_item_content'><FontAwesomeIcon icon={faPeopleGroup} /> <h3>Lotação</h3></div></Link>
                 </li>
               </>
 

@@ -29,6 +29,7 @@ async function LoginCheck(User, Password, res){
     let GetPassword
     let UserId
     let UserInDb = false
+    let UserRole = false
 
     //primeiro ir buscar o email do utilizador
     let sqlUsers = "SELECT email FROM users WHERE email = '" + User + "'";
@@ -41,6 +42,7 @@ async function LoginCheck(User, Password, res){
             resolve(resultUser);
 
             limit = resultUser.length;
+            console.log("emailsssssssssssssss",limit)
 
             //verificar se existe na base de dados
             if (limit != 0) {
@@ -51,80 +53,105 @@ async function LoginCheck(User, Password, res){
 
     }))
 
+    //ir buscar a role
+    let sqlrole = "SELECT role FROM users WHERE email = '" + User +"'"
+
+    let ResultRole = await new Promise((resolve, reject) => dbase.query(sqlrole, (err, resultRole) => {
+        if(err){
+            reject(err)
+        } else {
+            resolve(resultRole);
+            console.log("resultroleeeee",resultRole[0].role)
+            if(resultRole[0].role != '') {
+                UserRole = true
+            }
+        }
+    }))
+
     
 
-    // Caso o utilizador exista tem de se validar a password
+    
 
-    if (UserInDb == true) {
+    
 
-        let sql = "SELECT email, password, Id, role, username, number FROM users WHERE email = '" + User + "'"
+        // Caso o utilizador exista tem de se validar a password
 
-        let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sql, (err, result) => {
+        if (UserInDb == true) {
 
-            if (err) {
-                reject(err);
-            } else {
-                resolve(result);
-                GetPassword = result[0].password;
-                UserId = result[0].Id;
-                Role = result[0].role
-                Name = result[0].username
-                NumberId = result[0].number
-            }
+            let sql = "SELECT email, password, Id, role, username, number FROM users WHERE email = '" + User + "'"
 
-        }))
-        
-        
+            let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sql, (err, result) => {
 
-
-        //comparar os valores de hash das passwords
-        bcrypt.compare(Password, GetPassword, async function (err, result) {
-            console.log('Result', result)
-            if (result == true) {
-                
-                //Informação do utilizador na Tooken
-                let userData = {
-                    "email" : User,
-                    "Id" : UserId,
-                    "role" : Role,
-                    "name" : Name,
-                    "number" : NumberId
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                    GetPassword = result[0].password;
+                    UserId = result[0].Id;
+                    Role = result[0].role
+                    Name = result[0].username
+                    NumberId = result[0].number
                 }
-                console.log("UserData", userData)
-                
-                //TOKENS
-                const accessToken = jwt.sign(userData , process.env.ACCESS_TOKEN_SECRET ,{expiresIn: '1d'});
-                const refreshToken = jwt.sign(userData , process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1y' });
 
-                //Update ano refreshtoken na base de dados
-                //Este User é o email que é mandado do front end para o backend ao fazer o login
-                let sqlToken = "UPDATE users SET refreshToken = '" + refreshToken + "'WHERE email = '" + User + "'"
+            }))
+            
+            
 
-                let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sqlToken, (err, result) => {
-                    if (err) {
-                        reject(err);
+
+            //comparar os valores de hash das passwords
+            bcrypt.compare(Password, GetPassword, async function (err, result) {
+                console.log('Result', result)
+                if (result == true) {
+                    if (UserRole == true) {
+                        //Informação do utilizador na Tooken
+                        let userData = {
+                            "email" : User,
+                            "Id" : UserId,
+                            "role" : Role,
+                            "name" : Name,
+                            "number" : NumberId
+                        }
+                        console.log("UserData", userData)
+                        
+                        //TOKENS
+                        const accessToken = jwt.sign(userData , process.env.ACCESS_TOKEN_SECRET ,{expiresIn: '1d'});
+                        const refreshToken = jwt.sign(userData , process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1y' });
+
+                        //Update ano refreshtoken na base de dados
+                        //Este User é o email que é mandado do front end para o backend ao fazer o login
+                        let sqlToken = "UPDATE users SET refreshToken = '" + refreshToken + "'WHERE email = '" + User + "'"
+
+                        let ResultsDBase = await new Promise((resolve, reject) => dbase.query(sqlToken, (err, result) => {
+                            if (err) {
+                                reject(err);
+                            } else {
+                                resolve(result);
+                            }
+                        }));
+
+
+                        
+                        res.json({
+                            accessToken: accessToken, Name, Role
+                        });
+
                     } else {
-                        resolve(result);
+                        res.json("A sua conta ainda se encontra em verificação")
                     }
-                }));
+
+                } else {
+                    //ou seja, caso a pass não coicida
+                    console.log("Ups")
+                    res.json("Pass errada")
+                }
+
+            });
+
+        } else {
+            res.json("Utilizador nao existe!")
+        }
 
 
-
-                res.json({
-                    accessToken: accessToken, Name, Role
-                });
-
-            } else {
-                //ou seja, caso a pass não coicida
-                console.log("Ups")
-                res.json("Pass errada")
-            }
-
-        });
-
-    } else {
-        res.json("Utilizador nao existe!")
-    }
 
 } 
 

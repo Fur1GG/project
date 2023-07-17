@@ -21,6 +21,9 @@ const Remove_item = require("./remove_item")
 const Request_item = require("./request_item")
 const Return_item = require("./return_item")
 const GetRequestedItems = require("./get_item_requested")
+const SetSchedules = require("./add_schedule")
+const GetCapacity = require("./get_capacity")
+const GetMySchedules = require("./getmy_schedule")
 
 
 
@@ -49,6 +52,10 @@ app.use('/removeItem', Remove_item)
 app.use('/requestItem', Request_item)
 app.use('/returnItem', Return_item)
 app.use('/getrequestedItems', GetRequestedItems)
+app.use('/setSchedules', SetSchedules)
+app.use('/getCapacity', GetCapacity)
+app.use('/getmyschedule', GetMySchedules)
+
 
 
 

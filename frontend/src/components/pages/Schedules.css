@@ -1,0 +1,95 @@
+.schedules {
+    padding: 50px;
+    background-color: rgb(240,255,255);
+    margin-bottom: 20px;    
+    min-height: 77vh;
+}
+
+.schedules_container {
+    display: flex;
+    background-color: #c8e7fa;
+
+    
+}
+  
+.schedules_content {
+    flex-grow: 1;
+    margin-right: 20px;
+    
+}
+
+
+.schedule-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+  .schedule-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .schedule-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .schedule-input {
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .schedule-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .schedule-button:hover {
+    background-color: #0069d9;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .schedule-form-container {
+      width: 100%;
+    }
+  }
+
+.schedule_btns {
+    display: flex;
+}
+  
+
+/*TABLE*/
+
+.schedule_table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .schedule_table th,
+  .schedule_table td {
+    padding: 8px;
+    text-align: left;
+
+  }
+  
+  .schedule_table th {
+    background-color: #c8e7fa;
+  }
+  
+  .schedule_table tbody tr:nth-child(even) {
+    background-color: #eaf6ff;
+  }
+  
+  .schedule_table tbody tr:hover {
+    background-color: #c8e7fa;
+  }
+  
